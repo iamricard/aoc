@@ -1,0 +1,30 @@
+load("@rules_rust//rust:defs.bzl", "rust_library", "rust_test")
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
+rust_library(
+    name = "day_01_rs_lib",
+    srcs = ["lib.rs"],
+    edition = "2021",
+)
+
+rust_test(
+    name = "day_01_rs",
+    size = "small",
+    crate = ":day_01_rs_lib",
+)
+
+cc_library(
+    name = "day_01_cc_lib",
+    srcs = ["lib.cc"],
+    hdrs = ["lib.h"],
+)
+
+cc_test(
+    name = "day_01_cc",
+    size = "small",
+    srcs = ["test.cc"],
+    deps = [
+        ":day_01_cc_lib",
+        "@googletest//:gtest_main",
+    ],
+)

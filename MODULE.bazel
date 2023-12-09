@@ -1,0 +1,8 @@
+module(
+    name = "aoc",
+    version = "2023",
+)
+
+bazel_dep(name = "gazelle", version = "0.34.0")
+bazel_dep(name = "rules_cc", version = "0.0.9")
+bazel_dep(name = "googletest", version = "1.14.0")
